@@ -1,18 +1,19 @@
-import React, { Component } from "react";
-import "./App.css";
-import FormValidation from "./form/FormValidation";
-class App extends Component {
-  state = {
-    visible: true,
-  };
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-  render() {
-    return (
-      <div className="App">
-        <FormValidation />
+import CreateExercise from "./components/create-exercise.component";
+
+function App() {
+  return (
+    <Router>
+      <div className="container">
+        <br />
+
+        <Route path="/" exact component={CreateExercise} />
       </div>
-    );
-  }
+    </Router>
+  );
 }
 
 export default App;

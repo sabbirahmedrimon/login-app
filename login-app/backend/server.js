@@ -19,8 +19,10 @@ connection.once("open", () => {
 });
 
 const namesRouter = require("./routes/names");
+const usersRouter = require('./routes/users');
 
 app.use("/names", namesRouter);
+app.use('/users', usersRouter);
 
 
 app.listen(port, () => {

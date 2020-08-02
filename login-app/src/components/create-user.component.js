@@ -1,26 +1,18 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-export default class CreateExercise extends Component {
+export default class CreateUser extends Component {
   constructor(props) {
     super(props);
 
-    this.onChangeUsername = this.onChangeUsername.bind(this);
     this.onChangeEmail = this.onChangeEmail.bind(this);
     this.onChangePassword = this.onChangePassword.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
-      username: "",
       email: "",
       password: "",
     };
-  }
-
-  onChangeUsername(e) {
-    this.setState({
-      username: e.target.value,
-    });
   }
 
   onChangeEmail(e) {
@@ -28,7 +20,6 @@ export default class CreateExercise extends Component {
       email: e.target.value,
     });
   }
-
   onChangePassword(e) {
     this.setState({
       password: e.target.value,
@@ -38,21 +29,18 @@ export default class CreateExercise extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    const names = {
-      username: this.state.username,
+    const logins = {
       email: this.state.email,
-      password: this.state.password,
+      password: this.state.password
     };
 
-    console.log(names);
+    console.log(logins);
 
     axios
-      .post("http://localhost:5000/names/add", names)
+      .post("http://localhost:5000/users/add", logins)
       .then((res) => console.log(res.data));
 
-    window.location = "/";
     this.setState({
-      username: "",
       email: "",
       password: "",
     });
@@ -61,18 +49,8 @@ export default class CreateExercise extends Component {
   render() {
     return (
       <div>
-        <h3>Sign Up</h3>
+        <h3>User Login</h3>
         <form onSubmit={this.onSubmit}>
-          <div className="form-group">
-            <label>Name: </label>
-            <input
-              ref="userInput"
-              required
-              className="form-control"
-              value={this.state.username}
-              onChange={this.onChangeUsername}
-            ></input>
-          </div>
           <div className="form-group">
             <label>Email: </label>
             <input
@@ -84,17 +62,17 @@ export default class CreateExercise extends Component {
             />
           </div>
           <div className="form-group">
-            <label>Password </label>
+            <label>Password: </label>
             <input
               type="password"
+              required
               className="form-control"
               value={this.state.password}
               onChange={this.onChangePassword}
             />
           </div>
-
           <div className="form-group">
-            <input type="submit" value="Login" className="btn btn-primary" />
+            <input type="submit" value=" Login" className="btn btn-primary" />
           </div>
         </form>
       </div>

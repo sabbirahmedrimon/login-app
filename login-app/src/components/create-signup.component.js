@@ -50,7 +50,6 @@ export default class CreateSignup extends Component {
       .post("http://localhost:5000/signups/add", signups)
       .then((res) => console.log(res.data));
 
-    window.location = "/";
     this.setState({
       username: "",
       email: "",

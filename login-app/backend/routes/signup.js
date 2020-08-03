@@ -20,7 +20,7 @@ router.route("/add").post((req, res) => {
 
   newSignup
     .save()
-    .then(() => res.json("Person added!"))
+    .then(() => res.json("Signup Completed!"))
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
@@ -45,7 +45,7 @@ router.route("/update/:id").post((req, res) => {
 
       signup
         .save()
-        .then(() => res.json("Person updated!"))
+        .then(() => res.json("Sign Up completed!"))
         .catch((err) => res.status(400).json("Error: " + err));
     })
     .catch((err) => res.status(400).json("Error: " + err));

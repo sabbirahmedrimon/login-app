@@ -8,12 +8,10 @@ router.route("/").get((req, res) => {
 });
 
 router.route("/add").post((req, res) => {
-  const username = req.body.username;
   const email = req.body.email;
   const password = req.body.password;
 
   const newSignup = new Signup({
-    username,
     email,
     password,
   });
@@ -38,10 +36,9 @@ router.route("/:id").delete((req, res) => {
 
 router.route("/update/:id").post((req, res) => {
   Signup.findById(req.params.id)
-    .then((Signup) => {
-      name.username = req.body.username;
-      name.email = req.body.email;
-      name.password = req.body.password;
+    .then((signup) => {
+      signup.email = req.body.email;
+      signup.password = req.body.password;
 
       signup
         .save()

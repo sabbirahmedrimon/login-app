@@ -31,7 +31,7 @@ export default class CreateLogin extends Component {
 
     const logins = {
       email: this.state.email,
-      password: this.state.password
+      password: this.state.password,
     };
 
     console.log(logins);

@@ -7,7 +7,6 @@ const saltRounds = 10;
 
 const signupSchema = new Schema(
   {
-    username: { type: String, required: true },
     email: { type: String, required: true },
     password: { type: String, required: true },
   },

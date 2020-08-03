@@ -2,8 +2,8 @@ import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./components/navbar.component";
-import CreateUser from "./components/create-user.component";
-import CreateName from "./components/create-name.component";
+import CreateLogin from "./components/create-login.component";
+import CreateSignup from "./components/create-signup.component";
 
 function App() {
   return (
@@ -11,8 +11,8 @@ function App() {
       <div className="container">
       <Navbar />
         <br />
-        <Route path="/user" component={CreateUser} />
-        <Route path="/signup" exact component={CreateName} />
+        <Route path="/user" component={CreateLogin} />
+        <Route path="/signup" exact component={CreateSignup} />
       </div>
     </Router>
   );

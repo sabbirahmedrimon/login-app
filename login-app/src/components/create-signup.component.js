@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-export default class CreateName extends Component {
+export default class CreateSignup extends Component {
   constructor(props) {
     super(props);
 
@@ -38,16 +38,16 @@ export default class CreateName extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    const names = {
+    const signups = {
       username: this.state.username,
       email: this.state.email,
       password: this.state.password,
     };
 
-    console.log(names);
+    console.log(signups);
 
     axios
-      .post("http://localhost:5000/names/add", names)
+      .post("http://localhost:5000/signups/add", signups)
       .then((res) => console.log(res.data));
 
     window.location = "/";

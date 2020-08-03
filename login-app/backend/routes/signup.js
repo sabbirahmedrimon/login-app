@@ -1,9 +1,9 @@
 const router = require("express").Router();
-let Name = require("../models/name.model");
+let Signup = require("../models/signup.model");
 
 router.route("/").get((req, res) => {
-  Name.find()
-    .then((names) => res.json(names))
+  Signup.find()
+    .then((signups) => res.json(signups))
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
@@ -12,40 +12,40 @@ router.route("/add").post((req, res) => {
   const email = req.body.email;
   const password = req.body.password;
 
-  const newName = new Name({
+  const newSignup = new Signup({
     username,
     email,
     password,
   });
 
-  newName
+  newSignup
     .save()
-    .then(() => res.json("Name added!"))
+    .then(() => res.json("Person added!"))
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
 router.route("/:id").get((req, res) => {
-  Name.findById(req.params.id)
-    .then((name) => res.json(name))
+  Signup.findById(req.params.id)
+    .then((signup) => res.json(signup))
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
 router.route("/:id").delete((req, res) => {
-  Name.findByIdAndDelete(req.params.id)
-    .then(() => res.json("Name deleted."))
+  Signup.findByIdAndDelete(req.params.id)
+    .then(() => res.json("Person deleted."))
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
 router.route("/update/:id").post((req, res) => {
-  Name.findById(req.params.id)
-    .then((Name) => {
+  Signup.findById(req.params.id)
+    .then((Signup) => {
       name.username = req.body.username;
       name.email = req.body.email;
       name.password = req.body.password;
 
-      name
+      signup
         .save()
-        .then(() => res.json("Name updated!"))
+        .then(() => res.json("Person updated!"))
         .catch((err) => res.status(400).json("Error: " + err));
     })
     .catch((err) => res.status(400).json("Error: " + err));

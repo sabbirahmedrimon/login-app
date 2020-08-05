@@ -6,8 +6,7 @@ export default class CreateSignUp extends Component {
     super(props);
 
     this.state = {
-      firstname: "",
-      lastname: "",
+      name: "",
       email: "",
       password: "",
       errors: {},
@@ -24,8 +23,7 @@ export default class CreateSignUp extends Component {
     e.preventDefault();
 
     const newUser = {
-      firstname: this.state.firstname,
-      lastname: this.state.lastname,
+      name: this.state.name,
       email: this.state.email,
       password: this.state.password,
     };
@@ -42,27 +40,16 @@ export default class CreateSignUp extends Component {
           <div className="col-md-6 mt-5 mx-auto">
             <form onSubmit={this.onSubmit}>
               <h1 className="h3 mb-3 font-weight-normal">Signup</h1>
+       
               <div className="form-group">
-                <label> First name</label>
+                <label>Name</label>
                 <input
                   type="text"
                   required
                   className="form-control"
-                  name="firstname"
-                  placeholder="Enter your first name"
-                  value={this.state.firstname}
-                  onChange={this.onChange}
-                />
-              </div>
-              <div className="form-group">
-                <label>Last name</label>
-                <input
-                  type="text"
-                  required
-                  className="form-control"
-                  name="lastname"
-                  placeholder="Enter your lastname name"
-                  value={this.state.lastname}
+                  name="name"
+                  placeholder="Enter your name"
+                  value={this.state.name}
                   onChange={this.onChange}
                 />
               </div>

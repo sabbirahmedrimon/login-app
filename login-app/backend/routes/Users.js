@@ -12,8 +12,7 @@ process.env.SECRET_KEY = "secret";
 users.post("/register", (req, res) => {
   const today = new Date();
   const userData = {
-    firstname: req.body.firstname,
-    lastname: req.body.lastname,
+    name: req.body.name,
     email: req.body.email,
     password: req.body.password,
     created: today,
@@ -53,8 +52,7 @@ users.post("/login", (req, res) => {
           // Passwords match
           const payload = {
             _id: user._id,
-            firstname: user.firstname,
-            lastname: user.lastname,
+            name: user.name,
             email: user.email,
           };
           let token = jwt.sign(payload, process.env.SECRET_KEY, {

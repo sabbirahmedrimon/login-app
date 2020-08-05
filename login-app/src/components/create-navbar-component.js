@@ -12,12 +12,12 @@ class CreateHome extends Component {
       <ul className="navbar-nav">
         <li className="nav-item">
           <Link to="/register" className="nav-link">
-            Signup
+            Signup page
           </Link>
         </li>
         <li className="nav-item">
           <Link to="/login" className="nav-link">
-            Login
+            User Login
           </Link>
         </li>
       </ul>

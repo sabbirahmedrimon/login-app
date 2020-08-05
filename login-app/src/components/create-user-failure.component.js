@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import jwt_decode from "jwt-decode";
 
-class CreateUser extends Component {
+class CreateUserFailure extends Component {
   constructor() {
     super();
     this.state = {
       name: "",
       email: "",
-      errors: "",
+      errors: {},
     };
   }
 
@@ -16,13 +16,12 @@ class CreateUser extends Component {
     try {
       const decoded = jwt_decode(token);
       this.setState({
-        email: decoded.email,
         name: decoded.name,
+        lastname: decoded.lastname,
+        email: decoded.email,
       });
-    } catch (errors) {
-      this.setState({
-        email: " Email or password doesn't match",
-      });
+    } catch (error) {
+      console.log("profile do not match");
     }
   }
 
@@ -31,7 +30,7 @@ class CreateUser extends Component {
       <div className="container">
         <div className="jumbotron mt-5">
           <div className="col-sm-8 mx-auto">
-            <h1 className="text-center"> Personal Details</h1>
+            <h1 className="text-center"> Personal Details Missing</h1>
           </div>
           <table className="table col-md-6 mx-auto">
             <tbody>
@@ -51,4 +50,4 @@ class CreateUser extends Component {
   }
 }
 
-export default CreateUser;
+export default CreateUserFailure;

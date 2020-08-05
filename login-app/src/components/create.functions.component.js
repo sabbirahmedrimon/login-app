@@ -40,3 +40,6 @@ export const getProfile = (user) => {
       console.log(err);
     });
 };
+
+
+

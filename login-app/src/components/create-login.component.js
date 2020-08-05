@@ -39,12 +39,13 @@ export default class CreateLogin extends Component {
       <div className="container">
         <div className="row">
           <div className="col-md-6 mt-5 mx-auto">
-            <form noValidate onSubmit={this.onSubmit}>
+            <form onSubmit={this.onSubmit}>
               <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
               <div className="form-group">
                 <label htmlFor="email">Email address</label>
                 <input
                   type="email"
+                  required
                   className="form-control"
                   name="email"
                   placeholder="Enter email"
@@ -56,6 +57,7 @@ export default class CreateLogin extends Component {
                 <label htmlFor="password">Password</label>
                 <input
                   type="password"
+                  required
                   className="form-control"
                   name="password"
                   placeholder="Password"

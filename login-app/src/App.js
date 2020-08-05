@@ -6,6 +6,8 @@ import CreateHome from "./components/create-home.component";
 import CreateLogin from "./components/create-login.component";
 import CreateSignUp from "./components/create-signup.component";
 import CreateUser from "./components/create-user.component";
+import CreateUserFailure from "./components/create-user-failure.component";
+
 
 class App extends Component {
   render() {
@@ -18,6 +20,7 @@ class App extends Component {
             <Route exact path="/register" component={CreateSignUp} />
             <Route exact path="/login" component={CreateLogin} />
             <Route exact path="/profile" component={CreateUser} />
+            <Route exact path="/failure" component={CreateUserFailure} />
           </div>
         </div>
       </Router>

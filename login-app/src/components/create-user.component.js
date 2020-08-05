@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import jwt_decode from "jwt-decode";
 
-class Profile extends Component {
+class CreateUser extends Component {
   constructor() {
     super();
     this.state = {
-      first_name: "",
-      last_name: "",
+      firstname: "",
+      lastname: "",
       email: "",
       errors: {},
     };
@@ -14,12 +14,16 @@ class Profile extends Component {
 
   componentDidMount() {
     const token = localStorage.usertoken;
-    const decoded = jwt_decode(token);
-    this.setState({
-      first_name: decoded.first_name,
-      last_name: decoded.last_name,
-      email: decoded.email,
-    });
+    try {
+      const decoded = jwt_decode(token);
+      this.setState({
+        firstname: decoded.firstname,
+        lastname: decoded.lastname,
+        email: decoded.email,
+      });
+    } catch (error) {
+      console.log("profile do not match");
+    }
   }
 
   render() {
@@ -27,17 +31,17 @@ class Profile extends Component {
       <div className="container">
         <div className="jumbotron mt-5">
           <div className="col-sm-8 mx-auto">
-            <h1 className="text-center">PROFILE</h1>
+            <h1 className="text-center">Personal Details</h1>
           </div>
           <table className="table col-md-6 mx-auto">
             <tbody>
               <tr>
                 <td>Fist Name</td>
-                <td>{this.state.first_name}</td>
+                <td>{this.state.firstname}</td>
               </tr>
               <tr>
                 <td>Last Name</td>
-                <td>{this.state.last_name}</td>
+                <td>{this.state.lastname}</td>
               </tr>
               <tr>
                 <td>Email</td>
@@ -51,4 +55,4 @@ class Profile extends Component {
   }
 }
 
-export default Profile;
+export default CreateUser;

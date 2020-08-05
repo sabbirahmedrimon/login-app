@@ -1,23 +1,28 @@
-import React from "react";
+import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Navbar from "./components/navbar.component";
-import CreateSignup from "./components/create-signup.component";
+import CreateNavbar from "./components/create-navbar-component";
+import CreateHome from "./components/create-home.component";
 import CreateLogin from "./components/create-login.component";
-import Profile from "./components/Profile";
+import CreateSignUp from "./components/create-signup.component";
+import CreateUser from "./components/create-user.component";
 
-function App() {
-  return (
-    <Router>
-      <div className="container">
-        <Navbar />
-        <br />
-        <Route path="/signup" exact component={CreateSignup} />
-        <Route path="/user" component={CreateLogin} />
-        <Route exact path="/profile" component={Profile} />
-      </div>
-    </Router>
-  );
+class App extends Component {
+  render() {
+    return (
+      <Router>
+        <div className="App">
+          <CreateNavbar />
+          <Route exact path="/" component={CreateHome} />
+          <div className="container">
+            <Route exact path="/register" component={CreateSignUp} />
+            <Route exact path="/login" component={CreateLogin} />
+            <Route exact path="/profile" component={CreateUser} />
+          </div>
+        </div>
+      </Router>
+    );
+  }
 }
 
 export default App;

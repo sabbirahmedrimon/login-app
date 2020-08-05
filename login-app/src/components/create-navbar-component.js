@@ -31,15 +31,15 @@ class CreateHome extends Component {
           </Link>
         </li>
         <li className="nav-item">
-          <button onClick={this.logOut.bind(this)} className="nav-link">
+          <Link onClick={this.logOut.bind(this)} className="nav-link">
             Logout
-          </button>
+          </Link>
         </li>
       </ul>
     );
 
     return (
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark rounded">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <button
           className="navbar-toggler"
           type="button"
